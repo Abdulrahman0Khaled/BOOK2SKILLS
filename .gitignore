@@ -1,0 +1,61 @@
+# Dependencies
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Environments
+.venv/
+venv/
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Project data & outputs
+outputs/*
+!outputs/
+!outputs/**/.gitkeep
+books/*
+!books/
+!books/**/.gitkeep
+!books/README.md
+data/*
+!data/
+!data/**/.gitkeep
+cache/*
+!cache/
+!cache/**/.gitkeep
+*.chroma/
+
+# Logs
+*.log
+logs/
+
+# Coverage
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+
+# Ruff
+.ruff_cache/
+
+# Pyright
+.pyright/
+
+# Docker
+.docker/

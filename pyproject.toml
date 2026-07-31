@@ -1,0 +1,210 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "book-to-skills"
+version = "1.0.0"
+description = "Production-ready pipeline converting books into high-quality Hermes Skills"
+readme = "docs/README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+
+authors = [
+    {name = "Book-to-Skills Contributors", email = "abdulrahman.helmadin@gmail.com"},
+]
+
+[project.urls]
+Homepage = "https://github.com/Abdulrahman0Khaled/BOOK2SKILLS"
+Repository = "https://github.com/Abdulrahman0Khaled/BOOK2SKILLS.git"
+Issues = "https://github.com/Abdulrahman0Khaled/BOOK2SKILLS/issues"
+
+
+dependencies = [
+    # Web framework
+    "fastapi>=0.110.0",
+    "uvicorn[standard]>=0.27.0",
+    "pydantic>=2.5.0",
+    "pydantic-settings>=2.1.0",
+    "typer>=0.9.0",
+    "questionary>=2.0.0",
+
+    # Document extraction
+    "pypdf>=4.0.0",
+    "python-docx>=1.1.0",
+    "pdf2image>=1.16.0",
+    "pytesseract>=0.3.10",
+    "python-magic>=0.4.27",
+    "textract>=1.6.5",
+
+    # LLM
+    "openai>=1.12.0",
+    "anthropic>=0.25.0",
+    "google-generativeai>=0.3.0",
+
+    # Vector & embeddings
+    "numpy>=1.24.0",
+    "scikit-learn>=1.3.0",
+    "chromadb>=0.5.0",
+    "sentence-transformers>=2.2.0",
+
+    # Async & queuing
+    "redis>=5.0.0",
+    "rq>=1.16.0",
+    "httpx>=0.27.0",
+    "aiofiles>=23.2.0",
+
+    # Monitoring
+    "structlog>=24.1.0",
+    "rich>=13.7.0",
+    "tqdm>=4.66.0",
+
+    # Utils
+    "python-multipart>=0.0.6",
+    "pyyaml>=6.0.0",
+    "orjson>=3.9.0",
+    "lxml>=5.0.0",
+
+    # Diff & review
+    "deepdiff>=7.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "pytest-cov>=4.1.0",
+    "pytest-mock>=3.12.0",
+    "ruff>=0.3.0",
+    "mypy>=1.8.0",
+    "pre-commit>=3.6.0",
+    "pygount>=1.4.0",
+    "httpx>=0.27.0",
+    "faker>=22.0.0",
+]
+docs = [
+    "mkdocs>=1.5.0",
+    "mkdocs-material>=9.5.0",
+    "mkdocstrings>=0.24.0",
+]
+docker = [
+    "docker>=7.0.0",
+]
+all = [
+    "book-to-skills[dev,docs,docker]",
+]
+
+[project.scripts]
+book2skills = "book_to_skills.main:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["book_to_skills*"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+preview = true
+
+[tool.ruff.lint]
+select = [
+    "E", "W", "F", "I", "N", "UP", "B", "A",
+    "C4", "SIM", "ARG", "RET", "SLF",
+    "RUF", "PTH", "PD", "PL",
+]
+ignore = [
+    "E501",  # line length handled by formatter
+    "PLR0913",  # too many args
+    "PLR2004",  # magic value comparison
+    "PLR6301",  # no-self-use (many static helpers)
+    "PLC0415",  # import-outside-top-level (lazy imports by design)
+    "import-private-name",  # tests import private helpers deliberately
+    "PLR0912",  # too many branches
+    "PLR1702",  # too many nested blocks
+    "PLW2901",  # redefined loop name
+    "SLF001",  # private member access (asyncio internals + test helpers)
+    "B028",  # no explicit stacklevel
+    "PLC1901",  # compare-to-empty-string (explicit in tests)
+    "RUF069",  # float equality comparison
+    "PLR6201",  # literal membership
+    "RUF067",  # non-empty init module
+    "UP042",  # replace str enum
+    "PLW0717",  # too many statements in try
+    "RUF029",  # unused async
+    "PLR0917",  # too many positional args
+    "RUF012",  # mutable class default
+    "PLR0912",  # too many branches
+    "PLW1514",  # unspecified encoding
+    "RET504",  # unnecessary assign
+    "RUF052",  # used dummy variable
+    "SIM102",  # collapsible if
+    "SIM105",  # suppressible exception
+    "SIM108",  # if-else-block-instead-of-if-exp
+    "ARG001",
+    "ARG002",
+]
+fixable = ["ALL"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+ignore_missing_imports = true
+disallow_untyped_defs = false
+disallow_any_unimported = false
+warn_unused_ignores = true
+warn_redundant_casts = true
+no_implicit_optional = true
+
+[[tool.mypy.overrides]]
+module = [
+    "pypdf.*",
+    "docx.*",
+    "pytesseract.*",
+    "tqdm.*",
+    "rich.*",
+    "chromadb.*",
+    "sentence_transformers.*",
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+asyncio_mode = "auto"
+markers = [
+    "unit: Unit tests (fast, no external deps)",
+    "integration: Integration tests (need LLM or DB)",
+    "e2e: End-to-end tests (full pipeline)",
+    "slow: Tests that take >10s",
+]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::UserWarning",
+]
+
+[tool.coverage.run]
+source = ["book_to_skills"]
+omit = [
+    "*/tests/*",
+    "*/__init__.py",
+]
+relative_files = true
+command_line = "-m pytest"
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+    "raise NotImplementedError",
+    "return NotImplemented",
+    "pass",
+    "self.assert*",
+]

@@ -1,0 +1,51 @@
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../cache:/app/cache
+      - ../outputs:/app/outputs
+      - ../data:/app/data
+      - ../books:/app/books
+      - ../.env:/app/.env
+    environment:
+      - B2S_QUEUE__BACKEND=memory
+      - B2S_MONITORING__LOG_FORMAT=console
+    command: ["run", "all"]
+    networks:
+      - book2skills-net
+
+  api:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../cache:/app/cache
+      - ../outputs:/app/outputs
+      - ../data:/app/data
+      - ../books:/app/books
+      - ../.env:/app/.env
+    environment:
+      - B2S_QUEUE__BACKEND=memory
+    entrypoint: ["uvicorn"]
+    command: ["book_to_skills.api:app", "--host", "0.0.0.0", "--port", "8000"]
+    networks:
+      - book2skills-net
+
+  chromadb:
+    image: chromadb/chroma:latest
+    ports:
+      - "8001:8000"
+    volumes:
+      - ../data/vector_store:/chroma/chroma
+    networks:
+      - book2skills-net
+
+networks:
+  book2skills-net:
+    driver: bridge
