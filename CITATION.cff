@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this software in your research, academic work, or production AI systems, please cite it as below."
+authors:
+  - family-names: "Khaled"
+    given-names: "Abdulrahman"
+    email: "abdulrahman.helmadin@gmail.com"
+title: "Book2Skills: Autonomous Book-to-Hermes-Skill Conversion Pipeline for AI Systems"
+version: 1.0.0
+date-released: 2026-08-01
+url: "https://github.com/Abdulrahman0Khaled/BOOK2SKILLS"
+repository-code: "https://github.com/Abdulrahman0Khaled/BOOK2SKILLS"
+license: MIT
+type: software
+keywords:
+  - "artificial-intelligence"
+  - "llm"
+  - "knowledge-extraction"
+  - "hermes-skills"
+  - "rag"
+  - "chromadb"
+  - "ai-agents"
+  - "vector-embeddings"
+  - "book-parsing"
+abstract: "Book2Skills is a production-ready, autonomous processing pipeline engineered to extract, chunk, structure, and convert long-form books and complex domain literature into production-ready Hermes Skills (SKILL.md) for AI agents."
