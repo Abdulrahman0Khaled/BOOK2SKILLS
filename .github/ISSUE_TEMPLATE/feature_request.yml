@@ -1,0 +1,48 @@
+name: 🚀 Feature Request
+description: Suggest an idea or new feature enhancement for Book2Skills.
+title: "[FEATURE]: "
+labels: ["enhancement", "triage"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting a feature! Your feedback shapes the future roadmap of Book2Skills.
+
+  - type: textarea
+    id: problem-statement
+    attributes:
+      label: Is your feature request related to a problem?
+      description: A clear and concise description of what the problem or limitation is.
+      placeholder: I am always frustrated when...
+    validations:
+      required: false
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution
+      description: A clear description of what you want to happen or what capability should be added.
+      placeholder: Add support for...
+    validations:
+      required: true
+
+  - type: textarea
+    id: interface-changes
+    attributes:
+      label: Proposed Interface / API Changes
+      description: How should the user interact with this new feature? (e.g. CLI command `book2skills export epub`, API endpoint `/api/v1/...`)
+      render: markdown
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: A clear description of any alternative solutions or features you've considered.
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Add any other context, screenshots, or code examples about the feature request here.

@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 GitHub Discussions
+    url: https://github.com/Abdulrahman0Khaled/BOOK2SKILLS/discussions
+    about: Ask questions, share ideas, and discuss Book2Skills with the community.
+  - name: 📖 Official Documentation
+    url: https://Abdulrahman0Khaled.github.io/BOOK2SKILLS/
+    about: Read the official Book2Skills documentation and architecture guides.
+  - name: 🛡️ Security Vulnerability Report
+    url: https://github.com/Abdulrahman0Khaled/BOOK2SKILLS/security/advisories/new
+    about: Report security issues privately following our SECURITY.md policy.
