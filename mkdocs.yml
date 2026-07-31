@@ -1,0 +1,95 @@
+site_name: Book2Skills Documentation
+site_description: Production-ready autonomous pipeline converting books into high-quality Hermes Skills
+site_author: Abdulrahman Khaled
+site_url: https://Abdulrahman0Khaled.github.io/BOOK2SKILLS/
+repo_name: Abdulrahman0Khaled/BOOK2SKILLS
+repo_url: https://github.com/Abdulrahman0Khaled/BOOK2SKILLS
+edit_uri: edit/main/docs/
+
+exclude_docs: |
+  README.md
+  !adr/README.md
+
+
+
+theme:
+  name: material
+  language: en
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+  font:
+    text: Inter
+    code: JetBrains Mono
+
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.action.edit
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - tables
+  - attr_list
+  - md_in_html
+
+nav:
+  - Home: index.md
+  - Guides:
+      - Architecture Guide: architecture-guide.md
+      - Configuration Guide: configuration-guide.md
+      - Development Guide: development-guide.md
+      - Troubleshooting: troubleshooting.md
+  - Architecture Decisions (ADR):
+      - Overview: adr/README.md
+      - "001 Project Structure": adr/001-project-structure.md
+      - "002 LLM Abstraction": adr/002-llm-abstraction.md
+      - "003 Pipeline Stage Design": adr/003-pipeline-stage-design.md
+      - "004 Cache & Queue Strategy": adr/004-cache-queue-strategy.md
