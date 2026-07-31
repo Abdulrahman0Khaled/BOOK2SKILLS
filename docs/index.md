@@ -204,3 +204,17 @@ docker-compose -f docker/docker-compose.yml up -d
 ## 📝 Tech Stack Summary
 
 `Python 3.11` · `FastAPI` · `Pydantic` · `Typer` · `sentence-transformers` · `ChromaDB` · `structlog` · `pytest` · `Docker` · `GitHub Actions`
+
+---
+
+## 🙏 Acknowledgements
+
+**Book2Skills** is built upon and inspired by exceptional open-source projects, research initiatives, and developer tools:
+
+- 🧠 **[Hermes Agent Framework](https://github.com/)**: For pioneering the standardized `SKILL.md` specification for AI agents.
+- ⚡ **[FastAPI](https://fastapi.tiangolo.com/) & [Pydantic v2](https://docs.pydantic.dev/)**: For high-speed web framework infrastructure and strict type enforcement.
+- 🎨 **[Rich](https://rich.readthedocs.io/) & [Questionary](https://questionary.readthedocs.io/)**: For enabling visually stunning terminal UIs and interactive menu controls.
+- 🔍 **[ChromaDB](https://www.trychroma.com/) & [Sentence-Transformers](https://www.sbert.net/)**: For semantic vector embeddings, indexing, and similarity clustering.
+- 🤖 **LLM Providers & Ecosystem**: [Ollama](https://ollama.com/), [OpenAI](https://openai.com/), [Anthropic](https://anthropic.com/), [Google Gemini](https://ai.google.dev/), and [DeepSeek](https://deepseek.com/) for empowering autonomous knowledge extraction.
+- 📚 **[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)**: For delivering beautiful, accessible documentation UI for GitHub Pages.
+

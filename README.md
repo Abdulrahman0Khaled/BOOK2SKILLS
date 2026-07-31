@@ -436,14 +436,28 @@ pytest --cov=src/book_to_skills
 
 ---
 
+## 🙏 Acknowledgements
+
+**Book2Skills** is built upon and inspired by exceptional open-source projects, research initiatives, and developer tools:
+
+- 🧠 **[Hermes Agent Framework](https://github.com/)**: For pioneering the standardized `SKILL.md` specification for AI agents.
+- ⚡ **[FastAPI](https://fastapi.tiangolo.com/) & [Pydantic v2](https://docs.pydantic.dev/)**: For high-speed web framework infrastructure and strict type enforcement.
+- 🎨 **[Rich](https://rich.readthedocs.io/) & [Questionary](https://questionary.readthedocs.io/)**: For enabling visually stunning terminal UIs and interactive menu controls.
+- 🔍 **[ChromaDB](https://www.trychroma.com/) & [Sentence-Transformers](https://www.sbert.net/)**: For semantic vector embeddings, indexing, and similarity clustering.
+- 🤖 **LLM Providers & Ecosystem**: [Ollama](https://ollama.com/), [OpenAI](https://openai.com/), [Anthropic](https://anthropic.com/), [Google Gemini](https://ai.google.dev/), and [DeepSeek](https://deepseek.com/) for empowering autonomous knowledge extraction.
+- 📚 **[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)**: For delivering beautiful, accessible documentation UI for GitHub Pages.
+
+---
+
 ## 📄 License & Credits
 
 This project is open-source under the **MIT License**. See the [LICENSE](LICENSE) file for details.
 
-Developed with ❤️ by the **abdulrahman khaled**.
+Developed with ❤️ by **Abdulrahman Khaled**.
 
 ---
 
 <p align="center">
   <b>Book2Skills</b> — Bridging Literature and Executable Intelligence.
 </p>
+
