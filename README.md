@@ -361,9 +361,10 @@ B2S_VECTOR_DB__PERSIST_DIR=data/vector_store
 
 ---
 
-## 📜 Hermes Skill Protocol Standard
+## 💡 Output Examples & Hermes Skill Protocol Standard
 
 Every exported skill strictly adheres to the **Hermes Skill Specification Standard** (`SKILL.md`), featuring structured YAML frontmatter and modular markdown sections:
+
 
 ```markdown
 ---
@@ -436,6 +437,33 @@ pytest --cov=src/book_to_skills
 
 ---
 
+## 📖 Official Documentation
+
+Comprehensive documentation, architecture guides, configuration parameters, and developer reference guides are hosted on GitHub Pages:
+
+👉 **[Book2Skills Official Documentation Site](https://Abdulrahman0Khaled.github.io/BOOK2SKILLS/)**
+
+- 📘 [Architecture Guide](https://Abdulrahman0Khaled.github.io/BOOK2SKILLS/architecture-guide/)
+- ⚙️ [Configuration Guide](https://Abdulrahman0Khaled.github.io/BOOK2SKILLS/configuration-guide/)
+- 🛠️ [Development Guide](https://Abdulrahman0Khaled.github.io/BOOK2SKILLS/development-guide/)
+- ❓ [Troubleshooting Guide](https://Abdulrahman0Khaled.github.io/BOOK2SKILLS/troubleshooting/)
+- 📐 [Architectural Decision Records (ADRs)](https://Abdulrahman0Khaled.github.io/BOOK2SKILLS/adr/)
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions from developers, researchers, and open-source enthusiasts!
+
+Please review our community guides before submitting code:
+- 🤝 [Contributing Guidelines](CONTRIBUTING.md)
+- 📜 [Code of Conduct](CODE_OF_CONDUCT.md)
+- 🛡️ [Security Policy](SECURITY.md)
+- 🗺️ [Product Roadmap](ROADMAP.md)
+- 📜 [Citation CFF](CITATION.cff)
+
+---
+
 ## 🙏 Acknowledgements
 
 **Book2Skills** is built upon and inspired by exceptional open-source projects, research initiatives, and developer tools:
@@ -450,6 +478,7 @@ pytest --cov=src/book_to_skills
 ---
 
 ## 📄 License & Credits
+
 
 This project is open-source under the **MIT License**. See the [LICENSE](LICENSE) file for details.
 
