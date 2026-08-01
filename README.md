@@ -10,7 +10,7 @@
 [![Code Style: Ruff](https://img.shields.io/badge/code%20style-ruff-000000.svg)](https://github.com/astral-sh/ruff)
 [![Vector DB: ChromaDB](https://img.shields.io/badge/Vector%20DB-ChromaDB-red.svg)](https://www.trychroma.com/)
 
-> **The Autonomous, Production-Ready Pipeline Transforming Books & Complex Literature into High-Precision Executable Hermes Skills.**
+> **The Autonomous, Production-Ready Pipeline Transforming Books & Complex Literature into High-Precision Executable AI Agent Skills (OpenClaw, Claude, Codex, Hermes, etc.).**
 
 ---
 
@@ -26,7 +26,7 @@
 - [🖥️ Comprehensive CLI Reference](#️-comprehensive-cli-reference)
 - [🌐 REST API Reference](#-rest-api-reference)
 - [⚙️ Configuration & Environment Settings](#️-configuration--environment-settings)
-- [📜 Hermes Skill Protocol Standard](#-hermes-skill-protocol-standard)
+- [📜 AI Agent Skill Protocol Standard](#-ai-agent-skill-protocol-standard)
 - [🐳 Docker & Containerized Deployment](#-docker--containerized-deployment)
 - [🧪 Testing & Quality Assurance](#-testing--quality-assurance)
 - [📄 License & Credits](#-license--credits)
@@ -37,7 +37,7 @@
 
 Books and long-form literature contain humanity's highest-value knowledge—yet for AI Agents, raw unstructured text is passive, noisy, and difficult to execute reliably. 
 
-**Book2Skills** bridges the gap between passive reading and active execution. It is an enterprise-grade, agentic orchestration engine designed to digest long-form business, technical, financial, and domain literature, distill out core frameworks, and synthesize **production-ready, standardized Hermes Skills (`SKILL.md`)**.
+**Book2Skills** bridges the gap between passive reading and active execution. It is an enterprise-grade, agentic orchestration engine designed to digest long-form business, technical, financial, and domain literature, distill out core frameworks, and synthesize **production-ready, standardized AI Agent Skills (`SKILL.md`)** compatible with AI frameworks such as **OpenClaw, Claude, Codex, Hermes**, and others.
 
 Whether you are building specialized autonomous agents, constructing enterprise knowledge bases, or deploying privacy-first on-premise AI systems, **Book2Skills** automates knowledge extraction with unmatched precision, structural rigor, and zero manual overhead.
 
@@ -123,7 +123,7 @@ B2S_LLM__BASE_URL=http://localhost:11434/v1
    4. 🧠 Knowledge       ── Extract 12 Units (Rules, Workflows, Anti-Patterns...)
           │
           ▼
-   5. ⚡ Skill Gen        ── Formulate Hermes Protocol SKILL.md Standard
+   5. ⚡ Skill Gen        ── Formulate Universal Agent Protocol SKILL.md Standard
           │
           ▼
    6. ⚖️ Review           ── Autonomous Dual-Pass LLM Quality Scoring (1-10)
@@ -361,9 +361,9 @@ B2S_VECTOR_DB__PERSIST_DIR=data/vector_store
 
 ---
 
-## 💡 Output Examples & Hermes Skill Protocol Standard
+## 💡 Output Examples & AI Agent Skill Protocol Standard
 
-Every exported skill strictly adheres to the **Hermes Skill Specification Standard** (`SKILL.md`), featuring structured YAML frontmatter and modular markdown sections:
+Every exported skill strictly adheres to the **AI Agent Skill Specification Standard** (`SKILL.md`) compatible with OpenClaw, Claude, Codex, Hermes, and other agent systems, featuring structured YAML frontmatter and modular markdown sections:
 
 
 ```markdown
@@ -468,7 +468,7 @@ Please review our community guides before submitting code:
 
 **Book2Skills** is built upon and inspired by exceptional open-source projects, research initiatives, and developer tools:
 
-- 🧠 **[Hermes Agent Framework](https://github.com/)**: For pioneering the standardized `SKILL.md` specification for AI agents.
+- 🧠 **AI Agent Ecosystem (OpenClaw, Claude, Codex, Hermes, etc.)**: For pioneering the standardized `SKILL.md` specification for AI agents.
 - ⚡ **[FastAPI](https://fastapi.tiangolo.com/) & [Pydantic v2](https://docs.pydantic.dev/)**: For high-speed web framework infrastructure and strict type enforcement.
 - 🎨 **[Rich](https://rich.readthedocs.io/) & [Questionary](https://questionary.readthedocs.io/)**: For enabling visually stunning terminal UIs and interactive menu controls.
 - 🔍 **[ChromaDB](https://www.trychroma.com/) & [Sentence-Transformers](https://www.sbert.net/)**: For semantic vector embeddings, indexing, and similarity clustering.

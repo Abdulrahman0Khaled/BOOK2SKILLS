@@ -4,9 +4,9 @@
   <img src="assets/book2skills-banner.png" alt="Book2Skills Banner" width="100%">
 </p>
 
-> **Autonomous, Intelligent Book-to-Hermes-Skill Conversion Pipeline for Production AI Systems.**
+> **Autonomous, Intelligent Book-to-Skill Conversion Pipeline for Production AI Systems (OpenClaw, Claude, Codex, Hermes, etc.).**
 
-An end-to-end processing pipeline that converts unstructured books and complex domain documents (PDF, DOCX, MD, TXT) into **production-ready Hermes Skills (`SKILL.md`)**. Features multi-provider LLM knowledge extraction, structured skill generation, semantic vector embeddings, persistent ChromaDB vector storage, autonomous LLM quality review, and knowledge graph relationship mapping.
+An end-to-end processing pipeline that converts unstructured books and complex domain documents (PDF, DOCX, MD, TXT) into **production-ready AI Agent Skills (`SKILL.md`)** compatible with AI frameworks such as OpenClaw, Claude, Codex, Hermes, and others. Features multi-provider LLM knowledge extraction, structured skill generation, semantic vector embeddings, persistent ChromaDB vector storage, autonomous LLM quality review, and knowledge graph relationship mapping.
 
 ---
 
@@ -42,7 +42,7 @@ book2skills studio
 ```text
 ╔══════════════════════════════════════════════════════════════════╗
 ║                    📚  BOOK2SKILLS STUDIO                        ║
-║         Autonomous Book-to-Hermes-Skill Pipeline v1.0.0          ║
+║         Autonomous Book-to-Skill Pipeline v1.0.0                 ║
 ╚══════════════════════════════════════════════════════════════════╝
 
 ❯ Choose an action:
@@ -73,7 +73,7 @@ book2skills studio
 | **Skill Naming Standard** | Inconsistent camelCase | ✅ **Strict kebab-case naming specification** |
 | **Data Provenance** | Unlinked book_id | ✅ **Explicit source_book & source_chapters mapping** |
 | **Skill Sections** | Empty workflow fields | ✅ **LLM synthesizes full Workflows, Checklists, & Examples** |
-| **SKILL.md Export** | ❌ Unavailable | ✅ **Automated Hermes SKILL.md bundle exporter** |
+| **SKILL.md Export** | ❌ Unavailable | ✅ **Automated AI Agent SKILL.md bundle exporter** |
 | **Vector Embeddings** | Non-semantic hash codes | ✅ **Semantic vector embeddings (`sentence-transformers`)** |
 | **Vector Database** | Transient in-memory store | ✅ **Persistent ChromaDB database storage** |
 | **Quality Control** | Superficial rules | ✅ **Autonomous LLM Review Agents (1-10 scoring & audit)** |
@@ -211,7 +211,7 @@ docker-compose -f docker/docker-compose.yml up -d
 
 **Book2Skills** is built upon and inspired by exceptional open-source projects, research initiatives, and developer tools:
 
-- 🧠 **[Hermes Agent Framework](https://github.com/)**: For pioneering the standardized `SKILL.md` specification for AI agents.
+- 🧠 **AI Agent Ecosystem (OpenClaw, Claude, Codex, Hermes, etc.)**: For pioneering the standardized `SKILL.md` specification for AI agents.
 - ⚡ **[FastAPI](https://fastapi.tiangolo.com/) & [Pydantic v2](https://docs.pydantic.dev/)**: For high-speed web framework infrastructure and strict type enforcement.
 - 🎨 **[Rich](https://rich.readthedocs.io/) & [Questionary](https://questionary.readthedocs.io/)**: For enabling visually stunning terminal UIs and interactive menu controls.
 - 🔍 **[ChromaDB](https://www.trychroma.com/) & [Sentence-Transformers](https://www.sbert.net/)**: For semantic vector embeddings, indexing, and similarity clustering.

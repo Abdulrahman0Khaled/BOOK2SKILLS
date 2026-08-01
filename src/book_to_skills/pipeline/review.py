@@ -271,7 +271,7 @@ class ReviewStage(BaseStage):
             '"notes": [str]}'
         )
         return (
-            f"Review this generated Hermes Skill:\n\n"
+            f"Review this generated AI Agent Skill (compatible with OpenClaw, Claude, Codex, Hermes, etc.):\n\n"
             f"{json.dumps(payload, ensure_ascii=False, indent=2)}\n\n{criteria}"
         )
 

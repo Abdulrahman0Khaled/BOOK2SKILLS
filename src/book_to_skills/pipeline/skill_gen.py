@@ -117,7 +117,8 @@ class SkillSchema(BaseModel):
 
 _SYSTEM_PROMPT = (
     "You are a senior skill architect. Given knowledge units extracted "
-    "from a book, design ONE professional, actionable Hermes skill. "
+    "from a book, design ONE professional, actionable AI agent skill "
+    "(compatible with OpenClaw, Claude, Codex, Hermes, and other AI agents). "
     "Ground every statement in the provided units — never invent. "
     "Respond with valid JSON only, no markdown fences, no commentary."
 )
@@ -303,7 +304,7 @@ class SkillGenStage(BaseStage):
         Returns ``None`` when the LLM output is unusable so the caller
         can fall back to the heuristic builder.
         """
-        prompt = f"""Design a single Hermes skill from the knowledge units below.
+        prompt = f"""Design a single AI agent skill (compatible with OpenClaw, Claude, Codex, Hermes, and other AI systems) from the knowledge units below.
 
 KNOWLEDGE UNITS:
 {self._format_units_for_prompt(units)}

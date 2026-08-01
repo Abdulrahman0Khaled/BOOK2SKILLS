@@ -1,6 +1,6 @@
 """File-based persistent storage for skills and knowledge graphs.
 
-Provides a ``FileStore`` that saves generated Hermes skills as JSON files
+Provides a ``FileStore`` that saves generated AI agent skills as JSON files
 with rich metadata, and persists knowledge graphs as structured JSON.
 All data lives under the ``outputs/skills`` directory by default,
 matching the pipeline's ``StorageConfig``.

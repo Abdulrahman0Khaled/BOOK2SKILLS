@@ -24,7 +24,7 @@ class TestTUIComponents:
         from book_to_skills.tui import BANNER
 
         assert "BOOK-TO-SKILLS" in BANNER
-        assert "Hermes Skills" in BANNER
+        assert "AI Agent Skills" in BANNER
         assert "NexMind" not in BANNER  # branding removed
 
     def test_books_discovered(self):

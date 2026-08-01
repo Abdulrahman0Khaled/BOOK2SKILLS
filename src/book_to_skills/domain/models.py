@@ -108,7 +108,7 @@ class KnowledgeUnit(BaseModel):
 
 
 class HermesSkill(BaseModel):
-    """A generated Hermes Skill complete with all sections."""
+    """A generated AI Agent Skill (compatible with OpenClaw, Claude, Codex, Hermes, etc.) complete with all sections."""
 
     id: str = Field(default_factory=lambda: uuid4().hex[:12])
     knowledge_ids: list[str] = Field(default_factory=list)
@@ -152,7 +152,7 @@ class HermesSkill(BaseModel):
     updated_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
 
     def to_skill_markdown(self) -> str:
-        """Render the skill as a Hermes-compatible SKILL.md file."""
+        """Render the skill as an AI agent-compatible SKILL.md file (OpenClaw, Claude, Codex, Hermes, etc.)."""
         lines = ["---", f"name: {self.name}", f'description: "{self.description}"']
 
         if self.version:
@@ -274,3 +274,8 @@ class KnowledgeGraph(BaseModel):
     nodes: list[dict[str, Any]] = Field(default_factory=list)
     edges: list[dict[str, Any]] = Field(default_factory=list)
     created_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
+
+
+# Aliases for universal AI Agent skills (OpenClaw, Claude, Codex, Hermes, etc.)
+AgentSkill = HermesSkill
+Skill = HermesSkill

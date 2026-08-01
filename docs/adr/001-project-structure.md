@@ -5,7 +5,7 @@
 
 ## Context
 
-بناء نظام Pipeline يحول الكتب إلى Hermes Skills. نحتاج هيكل مشروع يدعم:
+بناء نظام Pipeline يحول الكتب إلى AI Agent Skills (متوافقة مع OpenClaw, Claude, Codex, Hermes...). نحتاج هيكل مشروع يدعم:
 - 10 مراحل مستقلة قابلة للتوسع
 - LLM Providers متعددة
 - سهولة الاختبار والصيانة

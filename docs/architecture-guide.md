@@ -72,7 +72,7 @@ BaseStage يسمح بإضافة Stages جديدة بدون تعديل الموج
 2. Clean → CleanedContent.text
 3. Chunk → list[TextChunk]
 4. Knowledge → list[KnowledgeUnit]
-5. SkillGen → list[HermesSkill]
+5. SkillGen → list[HermesSkill] (AI Agent Skills: OpenClaw, Claude, Codex, Hermes...)
 6. Review → تحديث status + quality_score
 7. Dedup → إزالة المكررات
 8. KG → knowledge_graph.json

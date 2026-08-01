@@ -37,10 +37,10 @@ from .pipeline.orchestrator import PipelineOrchestrator
 console = Console()
 
 BANNER = r"""
-╔══════════════════════════════════════════════════════════╗
-║   📚  BOOK-TO-SKILLS STUDIO                              ║
-║   Turn books into ready-to-use Hermes Skills             ║
-╚══════════════════════════════════════════════════════════╝
+╔═════════════════════════════════════════════════════════════════════════╗
+║   📚  BOOK-TO-SKILLS STUDIO                                             ║
+║   Turn books into ready-to-use AI Agent Skills (OpenClaw, Claude...)    ║
+╚═════════════════════════════════════════════════════════════════════════╝
 """
 
 
