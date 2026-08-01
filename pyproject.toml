@@ -15,9 +15,9 @@ authors = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/Abdulrahman0Khaled/youtube2skills"
-Repository = "https://github.com/Abdulrahman0Khaled/youtube2skills.git"
-Issues = "https://github.com/Abdulrahman0Khaled/youtube2skills/issues"
+Homepage = "https://github.com/Abdulrahman0Khaled/BOOK2SKILLS"
+Repository = "https://github.com/Abdulrahman0Khaled/BOOK2SKILLS.git"
+Issues = "https://github.com/Abdulrahman0Khaled/BOOK2SKILLS/issues"
 
 
 dependencies = [
