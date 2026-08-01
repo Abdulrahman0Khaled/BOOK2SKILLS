@@ -21,7 +21,6 @@ Issues = "https://github.com/Abdulrahman0Khaled/BOOK2SKILLS/issues"
 
 
 dependencies = [
-    # Web framework
     "fastapi>=0.110.0",
     "uvicorn[standard]>=0.27.0",
     "pydantic>=2.5.0",
@@ -29,7 +28,6 @@ dependencies = [
     "typer>=0.9.0",
     "questionary>=2.0.0",
 
-    # Document extraction
     "pypdf>=4.0.0",
     "python-docx>=1.1.0",
     "pdf2image>=1.16.0",
@@ -37,35 +35,29 @@ dependencies = [
     "python-magic>=0.4.27",
     "textract>=1.6.5",
 
-    # LLM
     "openai>=1.12.0",
     "anthropic>=0.25.0",
     "google-generativeai>=0.3.0",
 
-    # Vector & embeddings
     "numpy>=1.24.0",
     "scikit-learn>=1.3.0",
     "chromadb>=0.5.0",
     "sentence-transformers>=2.2.0",
 
-    # Async & queuing
     "redis>=5.0.0",
     "rq>=1.16.0",
     "httpx>=0.27.0",
     "aiofiles>=23.2.0",
 
-    # Monitoring
     "structlog>=24.1.0",
     "rich>=13.7.0",
     "tqdm>=4.66.0",
 
-    # Utils
     "python-multipart>=0.0.6",
     "pyyaml>=6.0.0",
     "orjson>=3.9.0",
     "lxml>=5.0.0",
 
-    # Diff & review
     "deepdiff>=7.0.0",
 ]
 

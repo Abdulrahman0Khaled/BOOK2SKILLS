@@ -7,13 +7,10 @@ exclude_docs: |
   README.md
   !adr/README.md
 
-
-
 theme:
   name: material
   language: en
   palette:
-    # Light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: indigo
@@ -22,7 +19,6 @@ theme:
         icon: material/weather-night
         name: Switch to dark mode
 
-    # Dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: indigo
