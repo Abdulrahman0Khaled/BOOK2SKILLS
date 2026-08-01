@@ -40,14 +40,15 @@ book2skills studio
 ```
 
 ```text
-╔══════════════════════════════════════════════════════════════════╗
-║                    📚  BOOK2SKILLS STUDIO                        ║
-║         Autonomous Book-to-Skill Pipeline v1.0.0                 ║
-╚══════════════════════════════════════════════════════════════════╝
+╔═════════════════════════════════════════════════════════════════════════╗
+║   📚  BOOK-TO-SKILLS STUDIO                                             ║
+║   Turn books into ready-to-use AI Agent Skills (OpenClaw, Claude...)    ║
+╚═════════════════════════════════════════════════════════════════════════╝
 
 ❯ Choose an action:
    👉 🚀  Run pipeline — all books
       📄  Run pipeline — single book
+      ⚙️  Configure LLM Provider
       📋  List available books
       📦  List generated skills
       🔍  Search skills database
@@ -57,6 +58,7 @@ book2skills studio
       🚪  Exit Studio
 ```
 
+- **Interactive LLM Provider Wizard**: Easily switch between OpenAI, Anthropic, Gemini, DeepSeek, OpenRouter, and Ollama directly from the terminal without manual `.env` editing.
 - **Live Progress Tracking**: Visual progress indicators displaying active stages (`extract → clean → chunk → knowledge → skill_gen...`).
 - **Colorized Output**: Rich summaries for books, skills, and extraction statistics.
 - **Zero Syntax Friction**: Completely navigable using keyboard arrow keys and `Enter`.

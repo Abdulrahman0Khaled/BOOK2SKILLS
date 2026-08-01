@@ -76,6 +76,7 @@ def main_menu() -> str:
     choices = [
         "🚀  Run pipeline — all books",
         "📄  Run pipeline — one book",
+        "⚙️  Configure LLM Provider",
         "📋  List books",
         "📦  List skills",
         "🔍  Search skills",
@@ -396,6 +397,147 @@ def run_one_book(orchestrator: PipelineOrchestrator) -> None:
 
 
 # ---------------------------------------------------------------------------
+# LLM Configuration Wizard
+# ---------------------------------------------------------------------------
+
+
+def _update_env_file(key_values: dict[str, str], env_path: str | Path = ".env") -> None:
+    """Update or append key-value pairs in a .env file."""
+    path = Path(env_path)
+    lines: list[str] = []
+    if path.exists():
+        lines = path.read_text(encoding="utf-8").splitlines()
+
+    updated_keys: set[str] = set()
+    new_lines: list[str] = []
+
+    for line in lines:
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#") or "=" not in stripped:
+            new_lines.append(line)
+            continue
+        key, _ = stripped.split("=", 1)
+        key = key.strip()
+        if key in key_values:
+            new_lines.append(f"{key}={key_values[key]}")
+            updated_keys.add(key)
+        else:
+            new_lines.append(line)
+
+    for key, value in key_values.items():
+        if key not in updated_keys:
+            new_lines.append(f"{key}={value}")
+
+    path.write_text("\n".join(new_lines) + "\n", encoding="utf-8")
+
+
+def configure_llm_provider(orchestrator: PipelineOrchestrator) -> None:
+    """Interactive wizard to configure LLM provider and models."""
+    import os
+
+    console.print(Panel(Text("⚙️ LLM Provider Configuration Wizard", style="bold cyan"), border_style="cyan"))
+
+    current_llm = orchestrator.config.llm
+    console.print(f"[bold]Active Provider:[/bold] [green]{current_llm.provider}[/green]")
+    console.print(f"[bold]Small Model:[/bold] {current_llm.model_small}")
+    console.print(f"[bold]Large Model:[/bold] {current_llm.model_large}")
+    console.print(f"[bold]Base URL:[/bold] {current_llm.base_url or 'default'}\n")
+
+    providers = ["openai", "anthropic", "gemini", "deepseek", "openrouter", "ollama"]
+    provider = questionary.select(
+        "Choose LLM Provider:",
+        choices=providers + ["Cancel"],
+        default=current_llm.provider if current_llm.provider in providers else "openai",
+        qmark=">>",
+        pointer=">>",
+    ).ask()
+
+    if not provider or provider == "Cancel":
+        console.print("[yellow]Configuration unchanged.[/yellow]")
+        return
+
+    presets: dict[str, dict[str, str]] = {
+        "openai": {
+            "small": "gpt-4o-mini",
+            "large": "gpt-4o",
+            "url": "https://api.openai.com/v1",
+        },
+        "anthropic": {
+            "small": "claude-3-5-haiku-20241022",
+            "large": "claude-3-5-sonnet-20241022",
+            "url": "https://api.anthropic.com/v1",
+        },
+        "gemini": {
+            "small": "gemini-1.5-flash",
+            "large": "gemini-1.5-pro",
+            "url": "https://generativelanguage.googleapis.com/v1beta",
+        },
+        "deepseek": {
+            "small": "deepseek-chat",
+            "large": "deepseek-reasoner",
+            "url": "https://api.deepseek.com/v1",
+        },
+        "openrouter": {
+            "small": "openai/gpt-4o-mini",
+            "large": "anthropic/claude-3.5-sonnet",
+            "url": "https://openrouter.ai/api/v1",
+        },
+        "ollama": {
+            "small": "qwen2.5:14b",
+            "large": "qwen2.5:14b",
+            "url": "http://localhost:11434/v1",
+        },
+    }
+
+    preset = presets.get(provider, {"small": "gpt-4o-mini", "large": "gpt-4o", "url": ""})
+
+    small_model = questionary.text(
+        "Small/Fast Model (parsing & chunking):",
+        default=preset["small"] if provider != current_llm.provider else current_llm.model_small,
+    ).ask()
+
+    large_model = questionary.text(
+        "Large/Reasoning Model (skill synthesis & review):",
+        default=preset["large"] if provider != current_llm.provider else current_llm.model_large,
+    ).ask()
+
+    api_key = current_llm.api_key
+    if provider != "ollama":
+        api_key_input = questionary.password(
+            "API Key (press Enter to keep current or skip if set in environment):",
+        ).ask()
+        if api_key_input and api_key_input.strip():
+            api_key = api_key_input.strip()
+
+    base_url = questionary.text(
+        "Base URL (press Enter for default):",
+        default=preset["url"] if provider != current_llm.provider else (current_llm.base_url or preset["url"]),
+    ).ask()
+
+    env_updates: dict[str, str] = {
+        "B2S_LLM__PROVIDER": provider,
+        "B2S_LLM__MODEL_SMALL": small_model or preset["small"],
+        "B2S_LLM__MODEL_LARGE": large_model or preset["large"],
+    }
+    if api_key:
+        env_updates["B2S_LLM__API_KEY"] = api_key
+    if base_url:
+        env_updates["B2S_LLM__BASE_URL"] = base_url
+
+    for k, v in env_updates.items():
+        os.environ[k] = v
+
+    try:
+        _update_env_file(env_updates)
+        console.print("[green]✓ Environment variables updated in .env[/green]")
+    except Exception as e:
+        console.print(f"[yellow]Note: Could not write .env file ({e}), applied in-memory.[/yellow]")
+
+    orchestrator.config = PipelineConfig()
+    console.print(f"[bold green]✓ Successfully configured LLM Provider: {provider.upper()}[/bold green]")
+
+
+# ---------------------------------------------------------------------------
 # Entry point
 # ---------------------------------------------------------------------------
 
@@ -412,6 +554,8 @@ def studio() -> None:
             run_all_books(orchestrator)
         elif choice.startswith("📄"):
             run_one_book(orchestrator)
+        elif choice.startswith("⚙️"):
+            configure_llm_provider(orchestrator)
         elif choice.startswith("📋"):
             show_books(orchestrator)
         elif choice.startswith("📦"):
@@ -434,3 +578,4 @@ def studio() -> None:
 
 if __name__ == "__main__":
     studio()
+
