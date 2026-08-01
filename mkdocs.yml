@@ -2,9 +2,6 @@ site_name: Book2Skills Documentation
 site_description: Production-ready autonomous pipeline converting books into high-quality Hermes Skills
 site_author: Abdulrahman Khaled
 site_url: https://Abdulrahman0Khaled.github.io/BOOK2SKILLS/
-repo_name: Abdulrahman0Khaled/BOOK2SKILLS
-repo_url: https://github.com/Abdulrahman0Khaled/BOOK2SKILLS
-edit_uri: edit/main/docs/
 
 exclude_docs: |
   README.md
@@ -53,7 +50,6 @@ theme:
     - search.share
     - content.code.copy
     - content.code.annotate
-    - content.action.edit
 
 markdown_extensions:
   - admonition
